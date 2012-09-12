@@ -2,7 +2,7 @@
 
 upgrade any http(s) server with error handling via domains
 
-![Hoomer](http://www.homersimpsonquotes.com/images/homer.gif)
+![Hoomer](http://www.wallpaperpimper.com/wallpaper/Shows/The_Simpsons/Doh-1-PV1LXGX876-1024x768.jpg)
 
 ## features
 
