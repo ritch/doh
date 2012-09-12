@@ -1,0 +1,1 @@
+exports.upgrade = require('./lib/upgrade');

@@ -1,0 +1,21 @@
+{
+  "author": "Ritchie Martori",
+  "name": "doh",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": ">= 0.6.x"
+  },
+  "main":"index",
+  "dependencies": {
+    "ejs": "0.8.x"
+  },
+  "devDependencies": {
+    "shelljs": "*"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}
