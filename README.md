@@ -15,6 +15,8 @@ upgrade any http(s) server with error handling via domains
 
     npm install doh
 
+## error page
+
 ![Error Screen](http://images.deploydapp.com/img/doh.png)
 
 ## usage
@@ -60,5 +62,9 @@ You can pass an options object to `doh.upgrade(server, options)` to override def
     npm test
 
 **note** - Since `doh` is entirely concerned with error handling, it requires a custom test runner that does not rely on `throw` for failures (see `test.js` for more).
+
+## license
+
+MIT
  
  
