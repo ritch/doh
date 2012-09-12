@@ -15,10 +15,6 @@ upgrade any http(s) server with error handling via domains
 
     npm install doh
 
-## error page
-
-![Error Screen](http://images.deploydapp.com/img/doh.png)
-
 ## usage
 
 Add error handling to an existing server.
@@ -28,7 +24,7 @@ Add error handling to an existing server.
   
     server.on('request', function () {
       process.nextTick(function() {
-        throw 'some error here'; // ends the response, returns an error page
+        thisFunctionClearlyDoesNotExist(); // errors, ends the response, returns an error page
       });
     });
   
@@ -37,6 +33,10 @@ Add error handling to an existing server.
     // call upgrade when you want
     // to start handling errors
     upgrade(server);
+
+## error page
+
+![Error Screen](http://images.deploydapp.com/img/doh.png)
 
 ## crash only
 
