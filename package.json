@@ -3,7 +3,7 @@
   "name": "doh",
   "version": "0.0.3",
   "repository": {
-    "url": "git@github.com:ritch/doh.git"
+    "url": "git://github.com/ritch/doh.git"
   },
   "engines": {
     "node": ">= 0.8.x"
