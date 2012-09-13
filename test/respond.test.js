@@ -17,7 +17,7 @@ test('respond should return html based on the error', function (done) {
   
   var req = {};
   
-  respond(new Error('test error'), res, req, function () {
+  respond(new Error('test error'), req, res, function () {
     if(!ended) fail('respond should call end');
     if(!headerSet) fail('respond should set a content type header');
     done();

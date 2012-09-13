@@ -17,6 +17,8 @@ upgrade any http(s) server with error handling via domains
 
 ## usage
 
+### upgrade(server, options)
+
 Add error handling to an existing server.
 
     var upgrade = require('doh').upgrade
@@ -34,13 +36,44 @@ Add error handling to an existing server.
     // to start handling errors
     upgrade(server);
 
+### createHandler(options)
+
+Create an adhoc error handler that will capture errors in a domain and respond to with the correct error.
+
+    var options = {template: 'my-err-template.html'}
+      , server = require('http').createServer()
+      , doh = require('doh');
+  
+    server.on('request', function(req, res) { 
+      var handler = doh.createHandler(options);
+      handler.run(function() {
+        process.nextTick(function() {
+          throw 'anything'; // will be sent to the response
+        });
+      });
+    });
+
+### createResponder(options)
+
+Return an error page based on an `Error` object. 
+
+    var options = {template: 'my-err-template.html'}
+      , server = require('http').createServer()
+      , doh = require('doh')
+      , respond = doh.createResponder({template: 'my-err-template.html'}) // template - optional
+
+    server.on('request', function(req, res) { 
+      var err = new Error('my custom error');
+      respond(err, req, res); // sends an error page
+    });
+
 ## error page
 
 ![Error Screen](http://images.deploydapp.com/img/doh.png)
 
 ## crash only
 
-By default `doh` handles errors on a domain and responds with an error page. Since node is crash only by design, you'll usually (if not always) want to `process.exit()` when an error occurs.
+By default `doh` handles errors on a domain and responds with an error page. Since node is crash only by design, you'll usually want to `process.exit()` when an error occurs.
 
     upgrade(server).on('request:error', function(err, req, res) {
       // at this point the response has been sent

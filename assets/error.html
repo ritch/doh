@@ -21,11 +21,12 @@
       color: #444;
     }
     pre {padding: 20px; font-size: 14px; line-height: 22px;}
-    .status {color: #ff0000; margin-right: 15px;}
+    .status {margin-right: 15px;}
+    .error {color: #ff0000;}
   </style>
 </head>
 <body>
-  <h1><span class="status"><%= res.statusCode %></span><%= err.toString() %></h1>
+  <h1><span class="status <%= res.statusCode >= 500 ? 'error' : '' %>"><%= res.statusCode %></span><%= err.toString() %></h1>
   <% if(err.stack) { %>
     <h2>Stack Trace</h2>
     <pre><%= err.stack %></pre>
