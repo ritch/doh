@@ -42,7 +42,7 @@ Add error handling to an existing server.
 
 By default `doh` handles errors on a domain and responds with an error page. Since node is crash only by design, you'll usually (if not always) want to `process.exit()` when an error occurs.
 
-    upgrade(server).on('error', function(err, req, res) {
+    upgrade(server).on('request:error', function(err, req, res) {
       // at this point the response has been sent
       // but we can still log out everything before we
       // restart the server
